@@ -421,7 +421,7 @@ EOF
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "git+file:///home/rycee/devel/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -452,7 +452,7 @@ EOF
         _i "Creating initial Home Manager generation..."
         echo
 
-        if doSwitch; then
+        if doSwitch --switch; then
             # translators: The "%s" specifier will be replaced by a file path.
             _i $'All done! The home-manager tool should now be installed and you can edit\n\n    %s\n\nto configure Home Manager. Run \'man home-configuration.nix\' to\nsee all available options.' \
                 "$confFile"
@@ -607,48 +607,92 @@ function doBuild() {
 }
 
 function doSwitch() {
+    # How we should handle the Home Manager profile before running the
+    # activation. Can be
+    #
+    # - "noop" : build a new configuration but do not update the profile.
+    #
+    # - "set" : build a new configuration and set it as the current generation.
+    #
+    # - "rollback" : rollback to the previous generation.
+    #
+    # Here "leave" is the default for the test action and "set" is the default
+    # for switch.
+    local profileAction
+
+    while (( $# > 0 )); do
+        local opt="$1"
+        shift
+
+        case $opt in
+            --switch)
+                profileAction='set'
+                ;;
+            --test)
+                profileAction='noop'
+                ;;
+            --rollback)
+                profileAction='rollback'
+                ;;
+            *)
+                _i 'Unknown argument %s' "$opt"
+                return 1
+                ;;
+        esac
+    done
+
+    setHomeManagerPathVariables
     setWorkDir
 
     local generation
 
-    # Build the generation and run the activate script. Note, we
-    # specify an output link so that it is treated as a GC root. This
-    # prevents an unfortunately timed GC from removing the generation
-    # before activation completes.
-    generation="$WORK_DIR/generation"
+    case $profileAction in
+        set|noop)
+            # Build the generation and run the activate script. Note, we
+            # specify an output link so that it is treated as a GC root. This
+            # prevents an unfortunately timed GC from removing the generation
+            # before activation completes.
+            generation="$WORK_DIR/generation"
 
-    setFlakeAttribute
-    if [[ -v FLAKE_CONFIG_URI ]]; then
-        doBuildFlake \
-            "$FLAKE_CONFIG_URI.activationPackage" \
-            --out-link "$generation" \
-            ${PRINT_BUILD_LOGS+--print-build-logs} \
-            && "$generation/activate" || return
-    else
-        doBuildAttr \
-            --out-link "$generation" \
-            --attr activationPackage \
-            && "$generation/activate" || return
+            setFlakeAttribute
+            if [[ -v FLAKE_CONFIG_URI ]]; then
+                doBuildFlake \
+                    "$FLAKE_CONFIG_URI.activationPackage" \
+                    --out-link "$generation" \
+                    ${PRINT_BUILD_LOGS+--print-build-logs}
+            else
+                doBuildAttr \
+                    --out-link "$generation" \
+                    --attr activationPackage
+            fi
+            ;;
+        rollback)
+            generation="$HM_PROFILE_DIR/home-manager"
+            ;;
+    esac
+
+    # TODO: Support nix profile.
+    case $profileAction in
+        set)
+            nix-env --profile "$HM_PROFILE_DIR/home-manager" --set "$generation"
+            ;;
+        rollback)
+            nix-env --profile "$HM_PROFILE_DIR/home-manager" --rollback
+            ;;
+    esac
+
+    "$generation/activate" || return
+
+    if [[ $profileAction == 'set' || $profileAction == 'noop' ]]; then
+        presentNews
     fi
-
-    presentNews
 }
 
 function doListGens() {
     setHomeManagerPathVariables
 
-    # Whether to colorize the generations output.
-    local color="never"
-    if [[ ! -v NO_COLOR && -t 1 ]]; then
-        color="always"
-    fi
-
-    pushd "$HM_PROFILE_DIR" > /dev/null
-    # shellcheck disable=2012
-    ls --color=$color -gG --time-style=long-iso --sort time home-manager-*-link \
-        | cut -d' ' -f 4- \
-        | sed -E 's/home-manager-([[:digit:]]*)-link/: id \1/'
-    popd > /dev/null
+    # TODO: Support nix profile.
+    nix-env --profile "$HM_PROFILE_DIR/home-manager" --list-generations
 }
 
 # Removes linked generations. Takes as arguments identifiers of
@@ -928,7 +972,7 @@ while [[ $# -gt 0 ]]; do
     opt="$1"
     shift
     case $opt in
-        build|init|instantiate|option|edit|expire-generations|generations|help|news|packages|remove-generations|switch|uninstall)
+        build|init|instantiate|option|edit|expire-generations|generations|help|news|packages|remove-generations|rollback|switch|test|uninstall)
             COMMAND="$opt"
             ;;
         -A)
@@ -982,6 +1026,17 @@ while [[ $# -gt 0 ]]; do
             ;;
         -n|--dry-run)
             export DRY_RUN=1
+            ;;
+        --rollback)
+            case $COMMAND in
+                switch)
+                    COMMAND_ARGS+=("$opt")
+                    ;;
+                *)
+                    _iError '--rollback can only be used with %s' "switch"
+                    exit 1
+                    ;;
+            esac
             ;;
         --option|--arg|--argstr)
             PASSTHROUGH_OPTS+=("$opt" "$1" "$2")
@@ -1038,13 +1093,19 @@ case $COMMAND in
         doInstantiate
         ;;
     switch)
-        doSwitch
+        doSwitch --switch "${COMMAND_ARGS[@]}"
+        ;;
+    test)
+        doSwitch --test
         ;;
     generations)
         doListGens
         ;;
     remove-generations)
         doRmGenerations "${COMMAND_ARGS[@]}"
+        ;;
+    rollback)
+        doRollback
         ;;
     expire-generations)
         if [[ ${#COMMAND_ARGS[@]} != 1 ]]; then

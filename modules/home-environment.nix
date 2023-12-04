@@ -570,9 +570,13 @@ in
 
     home.packages = [ config.home.sessionVariablesPackage ];
 
-    # A dummy entry acting as a boundary between the activation
-    # script's "check" and the "write" phases.
-    home.activation.writeBoundary = hm.dag.entryAnywhere "";
+    # The entry acting as a boundary between the activation script's "check" and
+    # the "write" phases. This is where we commit to attempting to actually
+    # activate the configuration. We do this by creating a GC root for the new
+    # generation so that we guard against it disappearing before we complete.
+    home.activation.writeBoundary = hm.dag.entryAnywhere ''
+      run --silence nix-store --realise "$newGenPath" --add-root "$newGenGcPath"
+    '';
 
     # Install packages to the user environment.
     #
@@ -706,6 +710,11 @@ in
           fi
 
           ${activationCmds}
+
+          # Create the "current generation" GC root and remove the temporary
+          # "activation in-progress" GC root.
+          run --silence nix-store --realise "$newGenPath" --add-root "$currentGenGcPath"
+          run rm $VERBOSE_ARG "$newGenGcPath"
         '';
       in
         pkgs.runCommand
@@ -726,6 +735,7 @@ in
             substituteInPlace $out/activate \
               --subst-var-by GENERATION_DIR $out
 
+            ln -s ${config.home.internal.filePutterConfig} $out/putter.json
             ln -s ${config.home-files} $out/home-files
             ln -s ${cfg.path} $out/home-path
 

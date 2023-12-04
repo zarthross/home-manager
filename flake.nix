@@ -2,8 +2,9 @@
   description = "Home Manager for Nix";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.putter.url = "git+file:///home/rycee/devel/putter";
 
-  outputs = { self, nixpkgs, ... }:
+  outputs = { self, nixpkgs, putter, ... }:
     {
       nixosModules = rec {
         home-manager = import ./nixos;
@@ -76,7 +77,10 @@
               in lib.throwIf (used != [ ]) msg v;
 
           in throwForRemovedArgs (import ./modules {
-            inherit pkgs lib check extraSpecialArgs;
+            inherit pkgs lib check;
+            extraSpecialArgs = extraSpecialArgs // {
+              putter = putter.packages.${pkgs.system}.default;
+            };
             configuration = { ... }: {
               imports = modules
                 ++ [{ programs.home-manager.path = toString ./.; }];
