@@ -100,6 +100,7 @@ let
     ./programs/getmail.nix
     ./programs/gh.nix
     ./programs/gh-dash.nix
+    ./programs/ghorg.nix
     ./programs/git-cliff.nix
     ./programs/git-credential-oauth.nix
     ./programs/git.nix

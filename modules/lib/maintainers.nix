@@ -587,4 +587,10 @@
     github = "zorrobert";
     githubId = 118135271;
   };
+  zarthross = {
+    name = "zarthross";
+    email = "zarthross+nix@gmail.com";
+    github = "zarthross";
+    githubId = 1111592;
+  };
 }
