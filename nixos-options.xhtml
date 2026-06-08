@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <title>Appendix B. NixOS Configuration Options</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
-<script src="highlightjs/highlight.pack.js" type="text/javascript"></script><script src="highlightjs/loader.js" type="text/javascript"></script>
+<script src="highlightjs/highlight.pack.js" type="text/javascript"></script><script src="highlightjs/loader.js" type="text/javascript"></script><script src="anchor-links.js" type="text/javascript"></script>
  <meta name="generator" content="nixos-render-docs" />
  <link rel="home" href="index.xhtml" title="Home Manager Manual" />
  <link rel="up" href="index.xhtml" title="Home Manager Manual" /><link rel="prev" href="options.xhtml" title="Appendix A. Home Manager Configuration Options" /><link rel="next" href="nix-darwin-options.xhtml" title="Appendix C. nix-darwin Configuration Options" />
@@ -43,8 +43,36 @@ embedded in the system configuration.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/nixos/common.nix" target="_top">
+&lt;home-manager/nixos/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="nixos-opt-home-manager.backupCommand"></a><a class="term" href="nixos-options.xhtml#nixos-opt-home-manager.backupCommand"><code class="option">home-manager.backupCommand</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>On activation run this command on each existing file
+rather than exiting with an error.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${pkgs.trash-cli}/bin/trash
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -68,11 +96,11 @@ file extension rather than exiting with an error.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">null</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">&quot;backup&quot;</code></p>
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;backup&quot;
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -96,11 +124,41 @@ option can be used to pass additional arguments to all modules.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">{ }</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">{ inherit emacs-overlay; }</code></p>
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{ inherit emacs-overlay; }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/nixos/common.nix" target="_top">
+&lt;home-manager/nixos/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="nixos-opt-home-manager.minimal"></a><a class="term" href="nixos-options.xhtml#nixos-opt-home-manager.minimal"><code class="option">home-manager.minimal</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable only the necessary modules that allow home-manager to function.</p><p>This can be used to allow vendoring a minimal list of modules yourself, rather than
+importing every single module.</p><p>THIS IS FOR ADVANCED USERS, AND WILL DISABLE ALMOST EVERY MODULE.
+THIS SHOULD NOT BE ENABLED UNLESS YOU KNOW THE IMPLICATIONS.
+.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -124,11 +182,11 @@ attribute set</p>
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -151,17 +209,50 @@ boolean</p>
 <p><span class="emphasis"><em>Type:</em></span>
 list of raw value</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">[ ]</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">[ { home.packages = [ nixpkgs-fmt ]; } ]</code></p>
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ { home.packages = [ nixpkgs-fmt ]; } ]
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/nixos/common.nix" target="_top">
 &lt;home-manager/nixos/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="nixos-opt-home-manager.startAsUserService"></a><a class="term" href="nixos-options.xhtml#nixos-opt-home-manager.startAsUserService"><code class="option">home-manager.startAsUserService</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to activate each user’s environment on demand, when
+they log in, using a systemd user service.  If this option is
+off, all configured users’ environments are instead activated
+during boot-up.</p><p>This option needs to be turned on in any situation where users’
+home directories are not available until they log in; for
+example, when using pam_mount.</p><p>Other usage scenarios are still experimental.  It may speed up
+boot when there are many users; this has not yet been confirmed.
+It could break configurations where the configured users do not
+(or do not always) run their processes within a complete
+systemd-managed user context.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/nixos" target="_top">
+&lt;home-manager/nixos&gt;
 </a></code>
 </td></tr>
 </table>
@@ -180,11 +271,11 @@ options <code class="option">nixpkgs.*</code>.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -208,11 +299,11 @@ boolean</p>
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -235,8 +326,8 @@ boolean</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (Home Manager module)</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">{ }</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -259,11 +350,11 @@ attribute set of (Home Manager module)</p>
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">

@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <title>Home Manager Manual</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
-<script src="highlightjs/highlight.pack.js" type="text/javascript"></script><script src="highlightjs/loader.js" type="text/javascript"></script>
+<script src="highlightjs/highlight.pack.js" type="text/javascript"></script><script src="highlightjs/loader.js" type="text/javascript"></script><script src="anchor-links.js" type="text/javascript"></script>
  <meta name="generator" content="nixos-render-docs" />
  <link rel="home" href="index.xhtml" title="Home Manager Manual" />
  <link rel="next" href="options.xhtml" title="Appendix A. Home Manager Configuration Options" />
@@ -29,11 +29,11 @@
   <div class="titlepage">
    <div>
    <div><h1 class="title"><a id="home-manager-manual"></a>Home Manager Manual</h1></div>
-   <div><h2 class="subtitle">Version 25.11 (unstable)</h2></div>
+   <div><h2 class="subtitle">Version 26.05 (unstable)</h2></div>
    </div>
    <hr />
   </div>
-<div class="toc"> <p><strong>Table of Contents</strong></p> <dl class="toc">  <dt> <span class="preface">  <a href="index.xhtml#preface">Preface</a> </span></dt><dt> <span class="part">  <a href="index.xhtml#ch-introduction">Introduction to Home Manager</a> </span></dt><dt> <span class="part">  <a href="index.xhtml#ch-installation">Installing Home Manager</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-install-standalone">Standalone installation</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-install-nixos-module">NixOS module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-install-nix-darwin-module">nix-darwin module</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-usage">Using Home Manager</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-usage-configuration">Configuration Example</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-rollbacks">Rollbacks</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-dotfiles">Keeping your ~ safe from harm</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-graphical">Graphical services</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-gpu-non-nixos">GPU on non-NixOS systems</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-updating">Updating</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release">Upgrading to a new Home Manager release</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-nix-flakes">Nix Flakes</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-flakes-prerequisites">Prerequisites</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-standalone">Standalone setup</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nixos-module">NixOS module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nix-darwin-module">nix-darwin module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-flake-parts-module">flake-parts module</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-writing-modules">Writing Home Manager Modules</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-option-types">Option Types</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-contributing">Contributing</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-contrib-getting-started">Getting started</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines">Guidelines</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-news">News</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-tests">Tests</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-internals">Home Manager Internals</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-internals-activation">Activation</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-3rd-party">Third-Party Tools and Extensions</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-3rd-party-module-collections">Module Collections</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-faq">Frequently Asked Questions (FAQ)</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#_why_is_there_a_collision_error_when_switching_generation">Why is there a collision error when switching generation?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_why_are_the_session_variables_not_set">Why are the session variables not set?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_how_to_set_up_a_configuration_for_multiple_users_machines">How to set up a configuration for multiple users/machines?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_why_do_i_get_an_error_message_about_literal_ca_desrt_dconf_literal_or_literal_dconf_service_literal">Why do I get an error message about <code class="literal">ca.desrt.dconf</code> or <code class="literal">dconf.service</code>?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_how_do_i_install_packages_from_nixpkgs_unstable">How do I install packages from Nixpkgs unstable?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_how_do_i_change_the_package_used_by_a_module">How do I change the package used by a module?</a> </span></dt></dl></dd><dt> <span class="appendix">  <a href="options.xhtml">A. Home Manager Configuration Options</a> </span></dt><dt> <span class="appendix">  <a href="nixos-options.xhtml">B. NixOS Configuration Options</a> </span></dt><dt> <span class="appendix">  <a href="nix-darwin-options.xhtml">C. nix-darwin Configuration Options</a> </span></dt><dt> <span class="appendix">  <a href="release-notes.xhtml">D. Release Notes</a> </span></dt> </dl></div><div class="list-of-examples"><p><strong>List of Examples</strong></p><dl><dt>1. <a href="index.xhtml#ex-rollback-scenario">Home Manager Rollback</a></dt></dl></div>
+<div class="toc"> <p><strong>Table of Contents</strong></p> <dl class="toc">  <dt> <span class="preface">  <a href="index.xhtml#preface">Preface</a> </span></dt><dt> <span class="part">  <a href="index.xhtml#ch-introduction">Introduction to Home Manager</a> </span></dt><dt> <span class="part">  <a href="index.xhtml#ch-installation">Installing Home Manager</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-install-standalone">Standalone installation</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-install-nixos-module">NixOS module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-install-nix-darwin-module">nix-darwin module</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-usage">Using Home Manager</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-usage-configuration">Configuration Example</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-rollbacks">Rollbacks</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-dotfiles">Keeping your ~ safe from harm</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-graphical">Graphical services</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-gpu-non-nixos">GPU on non-NixOS systems</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-modular-services">Modular Services</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-updating">Updating</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release">Upgrading to a new Home Manager release</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-nix-flakes">Nix Flakes</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-flakes-prerequisites">Prerequisites</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-standalone">Standalone setup</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nixos-module">NixOS module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nix-darwin-module">nix-darwin module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-flake-parts-module">flake-parts module</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-writing-modules">Writing Home Manager Modules</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-option-types">Option Types</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-contributing">Contributing</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-contrib-getting-started">Getting started</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-guidelines">Guidelines</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-news">News</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-tests">Tests</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-internals">Home Manager Internals</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-internals-activation">Activation</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-3rd-party">Third-Party Tools and Extensions</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#sec-3rd-party-module-collections">Module Collections</a> </span></dt></dl></dd><dt> <span class="part">  <a href="index.xhtml#ch-faq">Frequently Asked Questions (FAQ)</a> </span></dt><dd><dl><dt> <span class="section">  <a href="index.xhtml#_why_is_there_a_collision_error_when_switching_generation">Why is there a collision error when switching generation?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_why_are_the_session_variables_not_set">Why are the session variables not set?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_how_to_set_up_a_configuration_for_multiple_users_machines">How to set up a configuration for multiple users/machines?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_why_do_i_get_an_error_message_about_literal_ca_desrt_dconf_literal_or_literal_dconf_service_literal">Why do I get an error message about <code class="literal">ca.desrt.dconf</code> or <code class="literal">dconf.service</code>?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_how_do_i_install_packages_from_nixpkgs_unstable">How do I install packages from Nixpkgs unstable?</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#_how_do_i_change_the_package_used_by_a_module">How do I change the package used by a module?</a> </span></dt></dl></dd><dt> <span class="appendix">  <a href="options.xhtml">A. Home Manager Configuration Options</a> </span></dt><dt> <span class="appendix">  <a href="nixos-options.xhtml">B. NixOS Configuration Options</a> </span></dt><dt> <span class="appendix">  <a href="nix-darwin-options.xhtml">C. nix-darwin Configuration Options</a> </span></dt><dt> <span class="appendix">  <a href="release-notes.xhtml">D. Release Notes</a> </span></dt> </dl></div><div class="list-of-examples"><p><strong>List of Examples</strong></p><dl><dt>1. <a href="index.xhtml#ex-rollback-scenario">Home Manager Rollback</a></dt></dl></div>
 <div class="preface"> <div class="titlepage">  <div>   <div>    <h1 id="preface" class="title" >Preface   </h1>  </div> </div></div><p>This manual will eventually describe how to install, use, and extend Home
 Manager.</p><p>If you encounter problems then please reach out on the IRC channel
 <a class="link" href="https://webchat.oftc.net/?channels=home-manager"  target="_top">#home-manager</a>
@@ -85,7 +85,7 @@ Nix option. On NixOS you can control this option using the
 system option.</p></li><li class="listitem"><p>Add the appropriate Home Manager channel. If you are following
 Nixpkgs master or an unstable channel you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 $ nix-channel --update
-</code></pre><p>and if you follow a Nixpkgs version 25.05 channel you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
+</code></pre><p>and if you follow a Nixpkgs version 25.11 channel you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
 $ nix-channel --update
 </code></pre></li><li class="listitem"><p>Run the Home Manager installation command and create the first Home
 Manager generation:</p><pre><code class="programlisting  shell">$ nix-shell &#x27;&lt;home-manager&gt;&#x27; -A install
@@ -114,7 +114,7 @@ your system configuration. This is most conveniently done by adding a
 Home Manager channel to the root user. For example, if you are following
 Nixpkgs master or an unstable channel, you can run</p><pre><code class="programlisting  shell">$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 $ sudo nix-channel --update
-</code></pre><p>and if you follow a Nixpkgs version 25.05 channel, you can run</p><pre><code class="programlisting  shell">$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
+</code></pre><p>and if you follow a Nixpkgs version 25.11 channel, you can run</p><pre><code class="programlisting  shell">$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
 $ sudo nix-channel --update
 </code></pre><p>It is then possible to add</p><pre><code class="programlisting  nix">imports = [ &lt;home-manager/nixos&gt; ];
 </code></pre><p>to your system <code class="literal">configuration.nix</code> file, which will introduce a new
@@ -122,7 +122,7 @@ NixOS option called <code class="literal">home-manager.users</code> whose type i
 that maps user names to Home Manager configurations.</p><p>Alternatively, home-manager installation can be done declaratively through configuration.nix using the following syntax:</p><pre><code class="programlisting nix">{ config, pkgs, lib, ... }:
 
 let
-  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz;
 in
 {
   imports =
@@ -134,10 +134,10 @@ in
   home-manager.users.eve = { pkgs, ... }: {
     home.packages = [ pkgs.atool pkgs.httpie ];
     programs.bash.enable = true;
-  
+
     # The state version is required and should stay at the version you
     # originally installed.
-    home.stateVersion = &quot;25.05&quot;;
+    home.stateVersion = &quot;25.11&quot;;
   };
 }
 </code></pre><p>For example, a NixOS configuration may include the lines</p><pre><code class="programlisting  nix">users.users.eve.isNormalUser = true;
@@ -145,14 +145,14 @@ home-manager.users.eve = { pkgs, ... }: {
   home.packages = [ pkgs.atool pkgs.httpie ];
   programs.bash.enable = true;
 
-  # This value determines the Home Manager release that your configuration is 
-  # compatible with. This helps avoid breakage when a new Home Manager release 
-  # introduces backwards incompatible changes. 
+  # This value determines the Home Manager release that your configuration is
+  # compatible with. This helps avoid breakage when a new Home Manager release
+  # introduces backwards incompatible changes.
   #
-  # You should not change this value, even if you update Home Manager. If you do 
-  # want to update the value, then make sure to first check the Home Manager 
-  # release notes. 
-  home.stateVersion = &quot;24.05&quot;; # Please read the comment before changing. 
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = &quot;25.11&quot;; # Please read the comment before changing. 
 
 };
 </code></pre><p>and after a <code class="literal">sudo nixos-rebuild switch</code> the user eve’s environment
@@ -187,17 +187,17 @@ description of Home Manager and how to use it.</p>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-install-nix-darwin-module" class="title" style="clear: both">nix-darwin module   </h2>  </div> </div></div><p>Home Manager provides a module that allows you to prepare user
 environments directly from the
 <a class="link" href="https://github.com/nix-darwin/nix-darwin/"  target="_top">nix-darwin</a> configuration file,
-which often is more convenient than using the <code class="literal">home-manager</code> tool.</p><p>To make the NixOS module available for use you must <code class="literal">import</code> it into
-your system configuration. This is most conveniently done by adding a
-Home Manager channel. For example, if you are following Nixpkgs master
+which often is more convenient than using the <code class="literal">home-manager</code> tool.</p><p>To make the nix-darwin module available for use you must <code class="literal">import</code> it
+into your system configuration. This is most conveniently done by adding
+a Home Manager channel. For example, if you are following Nixpkgs master
 or an unstable channel, you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 $ nix-channel --update
-</code></pre><p>and if you follow a Nixpkgs version 25.05 channel, you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
+</code></pre><p>and if you follow a Nixpkgs version 25.11 channel, you can run</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
 $ nix-channel --update
 </code></pre><p>It is then possible to add</p><pre><code class="programlisting  nix">imports = [ &lt;home-manager/nix-darwin&gt; ];
-</code></pre><p>to your nix-darwin <code class="literal">configuration.nix</code> file, which will introduce a new
-NixOS option called <code class="literal">home-manager</code> whose type is an attribute set that
-maps user names to Home Manager configurations.</p><p>For example, a nix-darwin configuration may include the lines</p><pre><code class="programlisting  nix">users.users.eve = {
+</code></pre><p>to your nix-darwin <code class="literal">configuration.nix</code> file, which will introduce a
+<code class="literal">home-manager.users</code> option whose type is an attribute set that maps
+user names to Home Manager configurations.</p><p>For example, a nix-darwin configuration may include the lines</p><pre><code class="programlisting  nix">users.users.eve = {
   name = &quot;eve&quot;;
   home = &quot;/Users/eve&quot;;
 };
@@ -207,7 +207,7 @@ home-manager.users.eve = { pkgs, ... }: {
 
   # The state version is required and should stay at the version you
   # originally installed.
-  home.stateVersion = &quot;25.05&quot;;
+  home.stateVersion = &quot;25.11&quot;;
 };
 </code></pre><p>and after a <code class="literal">darwin-rebuild switch</code> the user eve’s environment should
 include a basic Bash configuration and the packages atool and httpie.</p><p>If you do not plan on having Home Manager manage your shell
@@ -262,7 +262,7 @@ the option. You can find the complete option documentation in
 </code></pre><p>Once a configuration is successfully built, it can be activated. The
 activation performs the steps necessary to make the files, programs, and
 services available in your user environment. The <code class="literal">home-manager switch</code>
-command performs a combined build and activation.</p><div class="toc"> <p><strong>Table of Contents</strong></p> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-usage-configuration">Configuration Example</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-rollbacks">Rollbacks</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-dotfiles">Keeping your ~ safe from harm</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-graphical">Graphical services</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-gpu-non-nixos">GPU on non-NixOS systems</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-updating">Updating</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release">Upgrading to a new Home Manager release</a> </span></dt> </dl></div></div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-configuration" class="title" style="clear: both">Configuration Example   </h2>  </div> </div></div><p>A fresh install of Home Manager will generate a minimal
+command performs a combined build and activation.</p><div class="toc"> <p><strong>Table of Contents</strong></p> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-usage-configuration">Configuration Example</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-rollbacks">Rollbacks</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-dotfiles">Keeping your ~ safe from harm</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-graphical">Graphical services</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-gpu-non-nixos">GPU on non-NixOS systems</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-modular-services">Modular Services</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-updating">Updating</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release">Upgrading to a new Home Manager release</a> </span></dt> </dl></div></div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-configuration" class="title" style="clear: both">Configuration Example   </h2>  </div> </div></div><p>A fresh install of Home Manager will generate a minimal
 <code class="literal">~/.config/home-manager/home.nix</code> file containing something like</p><pre><code class="programlisting  nix">{ config, pkgs, ... }:
 
 {
@@ -279,7 +279,7 @@ command performs a combined build and activation.</p><div class="toc"> <p><stron
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = &quot;25.05&quot;;
+  home.stateVersion = &quot;25.11&quot;;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -311,7 +311,7 @@ follows:</p><pre><code class="programlisting  nix">{ config, pkgs, ... }:
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = &quot;25.05&quot;;
+  home.stateVersion = &quot;25.11&quot;;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -367,7 +367,7 @@ $ home-manager generations
 2023-12-25 18:51 : id 761 -&gt; /nix/store/czc5y6vi1rvnkfv83cs3rn84jarcgsgh-home-manager-generation
 …
 </code></pre></div></details></div><br class="example-break" />
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-dotfiles" class="title" style="clear: both">Keeping your ~ safe from harm   </h2>  </div> </div></div><p>To configure programs and services Home Manager must write various
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-dotfiles" class="title" style="clear: both">Keeping your ~ safe from harm   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-usage-dotfiles-collisions">Resolving file collisions</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-dotfiles-advanced">Advanced file behavior</a> </span></dt> </dl></div><p>To configure programs and services Home Manager must write various
 things to your home directory. To prevent overwriting any existing files
 when switching to a new generation, Home Manager will attempt to detect
 collisions between existing files and generated files. If any such
@@ -390,7 +390,77 @@ result in</p><pre><code class="programlisting  shell">$ home-manager switch
 Activating checkLinkTargets
 Existing file &#x27;/home/jdoe/.config/git/config&#x27; is in the way
 Please move the above files and try again
-</code></pre>
+</code></pre><p>This error is about a file that Home Manager wants to manage as a
+symbolic link in your home directory. It is separate from package
+profile collisions, which usually mention <code class="literal">installPackages</code> or a
+<code class="literal">collision between .../bin/...</code> path. For package collisions, see
+<a class="link" href="index.xhtml#_why_is_there_a_collision_error_when_switching_generation" title="Why is there a collision error when switching generation?" >Why is there a collision error when switching generation?</a>.</p><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-usage-dotfiles-collisions" class="title" >Resolving file collisions   </h3>  </div> </div></div><p>The safest resolution is to inspect the existing path, move any
+settings you want Home Manager to manage into your configuration, and
+remove or move the unmanaged file before switching again.</p><p>For a standalone Home Manager installation, you can ask Home Manager to
+move unmanaged non-symlink paths out of the way during activation:</p><pre><code class="programlisting  shell">home-manager switch -b backup
+</code></pre><p>With the command above, a colliding <code class="literal">~/.config/git/config</code> is moved to
+<code class="literal">~/.config/git/config.backup</code> before Home Manager links the managed
+file. If the backup path already exists then activation still aborts, so
+choose an extension whose backup path does not already exist.</p><p>Standalone activation can also run a custom command for each collision:</p><pre><code class="programlisting  shell">home-manager switch -B trash-put
+</code></pre><p>The command receives the colliding path as an argument and must move or
+remove that path. If both <code class="literal">-B</code> and <code class="literal">-b</code> are set, the custom command takes
+precedence; the command may still use the
+<code class="literal">HOME_MANAGER_BACKUP_EXT</code> environment variable set by <code class="literal">-b</code>.</p><p>When Home Manager is used as a NixOS or nix-darwin module, configure the
+corresponding module options instead of passing standalone command line
+flags:</p><pre><code class="programlisting  nix">{
+  home-manager.backupFileExtension = &quot;backup&quot;;
+}
+</code></pre><p>or</p><pre><code class="programlisting  nix">{
+  home-manager.backupCommand = &quot;${pkgs.trash-cli}/bin/trash-put&quot;;
+}
+</code></pre><p>If both <code class="option">home-manager.backupCommand</code> and
+<code class="option">home-manager.backupFileExtension</code> are set, the command takes
+precedence. The extension is still exported to the command as
+<code class="literal">HOME_MANAGER_BACKUP_EXT</code>, so the command can use it when implementing
+its own backup naming. With
+<code class="option">home-manager.backupFileExtension</code>, Home Manager refuses to
+replace an existing backup path unless
+<code class="option">home-manager.overwriteBackup</code> is enabled:</p><pre><code class="programlisting  nix">{
+  home-manager.backupFileExtension = &quot;backup&quot;;
+  home-manager.overwriteBackup = true;
+}
+</code></pre><div class="warning"><h3 class="title">Warning</h3><p><code class="option">home-manager.overwriteBackup</code> allows activation to clobber
+existing backup files. Only enable it when those backup paths are
+disposable.</p></div><p>For individual files, many file options also support <code class="literal">force = true</code>:</p><pre><code class="programlisting  nix">{
+  home.file.&quot;.config/example&quot; = {
+    source = ./example;
+    force = true;
+  };
+}
+</code></pre><p>This skips the collision check for the affected target and lets Home
+Manager replace the existing file or link. Use it sparingly; it can
+silently delete local changes.</p><p>Backup commands and backup extensions are intended for unmanaged
+non-symlink paths. If the colliding target is an unmanaged symbolic
+link, move it manually or use <code class="literal">force = true</code> after checking that the
+link target is safe to replace.</p>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-usage-dotfiles-advanced" class="title" >Advanced file behavior   </h3>  </div> </div></div><p>The notes below apply to <code class="option">home.file</code> and to options based on the
+same file type, such as <code class="option">xdg.configFile</code>.</p><p>When a file source is a directory, <code class="option">home.file.&lt;name&gt;.recursive</code>
+changes how the directory is linked. With the default <code class="literal">recursive = false</code>, the target is one symbolic link to the source directory. With
+<code class="literal">recursive = true</code>, Home Manager creates a matching directory tree and
+links each leaf file into it.</p><p>Recursive directory linking has special overlap behavior. A direct
+duplicate target, such as two managed files both targeting <code class="literal">foo</code>, is an
+error. If a recursively linked directory provides <code class="literal">foo/bar</code> and another
+managed file also targets <code class="literal">foo/bar</code>, Home Manager keeps the recursive
+file by default and ignores the overlapping regular file.</p><p>The <code class="option">home.file.&lt;name&gt;.onChange</code> hook runs after the new files
+are linked. For recursive file entries, the hook is always run, so it
+should be written to be safe even when no leaf file actually changed.</p><p>Normally a path assigned to <code class="option">home.file.&lt;name&gt;.source</code> is copied
+or linked through the Nix store. To make Home Manager create a link to a
+live path outside the store, use
+<code class="literal">config.lib.file.mkOutOfStoreSymlink</code>:</p><pre><code class="programlisting  nix">{ config, ... }:
+
+{
+  home.file.&quot;.config/example&quot;.source =
+    config.lib.file.mkOutOfStoreSymlink ./example;
+}
+</code></pre><p>This is useful when the target should follow changes to a mutable file
+or directory outside the store.</p>
+</div>
+
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-graphical" class="title" style="clear: both">Graphical services   </h2>  </div> </div></div><p>Home Manager includes a number of services intended to run in a
 graphical session, for example <code class="literal">xscreensaver</code> and <code class="literal">dunst</code>.
 Unfortunately, such services will not be started automatically unless
@@ -411,12 +481,69 @@ like</p><pre><code class="programlisting  nix">{
   # …
 }
 </code></pre><p>in your Home Manager configuration.</p>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-gpu-non-nixos" class="title" style="clear: both">GPU on non-NixOS systems   </h2>  </div> </div></div><p>To access the GPU, programs need access to OpenGL and Vulkan libraries. While
-this works transparently on NixOS, it does not on other Linux systems. A
-solution is provided by <a class="link" href="https://github.com/nix-community/nixGL"  target="_top">NixGL</a>, which
-can be integrated into Home Manager.</p><p>To enable the integration, import NixGL into your home configuration, either as
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-gpu-non-nixos" class="title" style="clear: both">GPU on non-NixOS systems   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-usage-gpu-sudo">When sudo is available: fixing the host OS</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-gpu-nosudo">No root access: wrapping programs</a> </span></dt> </dl></div><p>To access the GPU, programs need access to OpenGL and Vulkan libraries. While
+this works transparently on NixOS, it does not on other Linux systems. There are
+two options:</p><div class="orderedlist"><ol class="orderedlist compact"  type="1"><li class="listitem"><p>Recommended: modify the host system slightly so that the graphics libraries
+can be found where programs from Nixpkgs can find them.</p></li><li class="listitem"><p>Wrap programs from Nixpkgs in an environment which tells them where to find
+graphics libraries.</p></li></ol></div><p>The first option is very clean because the needed modifications to the host OS
+are small. However, it does require root/sudo access to the system, which may
+not be available. The second approach avoids that. However, it injects libraries
+from Nixpkgs into the environment of wrapped programs, which can make it
+impossible to launch programs of the host OS from wrapped programs.</p><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-usage-gpu-sudo" class="title" >When sudo is available: fixing the host OS   </h3>  </div> </div></div><p>The <code class="option">targets.genericLinux.gpu</code> module is automatically enabled whenever
+the option <code class="option">targets.genericLinux.enable</code> is set (unless
+<a class="link" href="index.xhtml#sec-usage-gpu-nosudo" title="No root access: wrapping programs" >NixGL</a> is used instead), which is recommended for
+non-NixOS Linux distributions in any case. The module can also be explicitly
+enabled by setting <code class="option">targets.genericLinux.gpu.enable</code>.</p><p>This module builds a directory containing GPU libraries. When activating the
+home configuration by <code class="literal">home-manager switch</code>, the host system is examined: for
+compatibility with NixOS, these libraries need to be placed in
+<code class="literal">/run/opengl-driver</code>. If this directory does not exist, or contains a different
+set of libraries, the activation script will print a warning such as</p><pre><code class="programlisting text">Activating checkExistingGpuDrivers
+GPU drivers require an update, run
+  sudo /nix/store/HASH-non-nixos-gpu/bin/non-nixos-gpu-setup
+</code></pre><p>Because the <code class="literal">/run</code> directory is volatile and disappears on reboot, libraries
+cannot be simply copied or linked there. The <code class="literal">non-nixos-gpu-setup</code> script
+installs a
+<a class="link" href="https://www.freedesktop.org/software/systemd/man/latest/tmpfiles.d.html"  target="_top"><code class="literal">tmpfiles.d</code></a>
+config which ensures that the drivers are linked to <code class="literal">/run/opengl-driver</code> on
+boot. Home Manager will always check and warn you when this setup needs to be
+refreshed.</p><p>If you ever wish to uninstall these drivers, all you need to do is</p><pre><code class="programlisting sh">sudo rm /run/opengl-driver
+sudo rm /etc/tmpfiles.d/non-nixos-gpu.conf
+</code></pre><div class="section"> <div class="titlepage">  <div>   <div>    <h4 id="sec-usage-gpu-offloading" class="title" >GPU offloading   </h4>  </div> </div></div><p>You can use the <code class="option">targets.genericLinux.nixGL.prime.installScript</code> option.
+It installs the <code class="literal">prime-offload</code> script which is configured through options under
+<code class="option">targets.genericLinux.nixGL.prime</code>. This functionality is independent
+from the rest of NixGL and can be used when
+<code class="option">targets.genericLinux.nixGL.packages</code> is left <code class="literal">null</code>, which it should be
+when using drivers from <code class="literal">/run/opengl-driver</code>.</p>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h4 id="sec-usage-gpu-nvidia" class="title" >Nvidia drivers   </h4>  </div> </div></div><p>If you need to include the proprietary Nvidia drivers, the process is a bit more
+involved. You need to:</p><div class="orderedlist"><ol class="orderedlist "  type="1"><li class="listitem"><p>Determine the exact version used by the host system. Example: <code class="literal">550.163.01</code></p></li><li class="listitem"><p>Fetch that version of the drivers from Nvidia and calculate their hash.
+Example:</p><pre><code class="programlisting sh">nix store prefetch-file \
+  https://download.nvidia.com/XFree86/Linux-x86_64/550.163.01/NVIDIA-Linux-x86_64-550.163.01.run
+</code></pre><p>Attention: the version and architecture are present twice. If you are on an
+ARM system, replace <code class="literal">x86_64</code> with <code class="literal">aarch64</code>.</p></li><li class="listitem"><p>Put this information into your home configuration. Example:</p><pre><code class="programlisting nix">targets.genericLinux.gpu.nvidia = {
+  enable = true;
+  version = &quot;550.163.01&quot;;
+  sha256 = &quot;sha256-74FJ9bNFlUYBRen7+C08ku5Gc1uFYGeqlIh7l1yrmi4=&quot;;
+};
+</code></pre></li></ol></div><div class="warning"><h3 class="title">Warning</h3><p>The Nvidia driver version <span class="strong"><strong>must</strong></span> match the host system. This means that you
+must pay attention when upgrading the system and update the home configuration
+as well.</p></div>
+</div>
+
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-usage-gpu-nosudo" class="title" >No root access: wrapping programs   </h3>  </div> </div></div><p>The wrapping approach is facilitated by
+<a class="link" href="https://github.com/nix-community/nixGL"  target="_top">NixGL</a>, which can be integrated into
+Home Manager.</p><div class="warning"><h3 class="title">Warning</h3><p>This approach can cause issues when a wrapped program from Nixpkgs executes a
+program from the host. For example, Firefox from Nixpkgs must be wrapped by
+NixGL in order for graphical acceleration to work. If you then download a PDF
+file and open it in a PDF viewer that is not installed from Nixpkgs but is
+provided by the host distribution, there may be issues. Because Firefox’s
+environment injects libraries from NixGL, they are inherited by the PDF viewer,
+and unless they are the same or compatible version as the libraries on the host,
+the viewer will not work. This problem manifests more often with Vulkan because
+it needs a larger set of injected libraries than OpenGL.</p><p>The problem typically manifests with errors similar to</p><pre><code class="programlisting text">/nix/store/HASH-gcc-12.3.0-lib/lib/libstdc++.so.6: version `GLIBCXX_3.4.31&#x27; not found
+</code></pre></div><p>To enable the integration, import NixGL into your home configuration, either as
 a channel, or as a flake input passed via <code class="literal">extraSpecialArgs</code>. Then, set the
-<code class="literal">nixGL.packages</code> option to the package set provided by NixGL.</p><p>Once integration is enabled, it can be used in two ways: as Nix functions for
+<code class="literal">targets.genericLinux.nixGL.packages</code> option to the package set provided by
+NixGL.</p><p>Once integration is enabled, it can be used in two ways: as Nix functions for
 wrapping programs installed via Home Manager, and as shell commands for running
 programs installed by other means (such as <code class="literal">nix shell</code>). In either case, there
 are several wrappers available. They can be broadly categorized</p><div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc;"><li class="listitem"><p>by vendor: as Mesa (for Free drivers of all vendors) and Nvidia (for
@@ -430,10 +557,11 @@ configured to use any of the wrappers. It is intended to provide a customization
 point when the same home configuration is used across several machines with
 different hardware. There is also the <code class="literal">config.lib.nixGL.wrapOffload</code> alias for
 two-GPU systems.</p><p>Another convenience is that all wrapper functions are always available. However,
-when <code class="literal">nixGL.packages</code> option is unset, they are no-ops. This allows them to be
-used even when the home configuration is used on NixOS machines. The exception
-is the <code class="literal">prime-offload</code> script which ignores <code class="literal">nixGL.packages</code> and is installed
-into the environment whenever <code class="literal">nixGL.prime.installScript</code> is set. This script,
+when <code class="literal">targets.genericLinux.nixGL.packages</code> option is unset, they are no-ops.
+This allows them to be used even when the home configuration is used on NixOS
+machines. The exception is the <code class="literal">prime-offload</code> script which ignores
+<code class="literal">targets.genericLinux.nixGL.packages</code> and is installed into the environment
+whenever <code class="literal">targets.genericLinux.nixGL.prime.installScript</code> is set. This script,
 which can be used to start a program on a secondary GPU, does not depend on
 NixGL and is useful on NixOS systems as well.</p><p>Below is an abbreviated example for an Optimus laptop that makes use of both
 Mesa and Nvidia wrappers, where the latter is used in dGPU offloading mode. It
@@ -442,10 +570,12 @@ to run on the Nvidia dGPU, and how to install the wrapper scripts. It also wraps
 Xonotic to run on the dGPU, but uses the wrapper function directly for
 demonstration purposes.</p><pre><code class="programlisting nix">{ config, lib, pkgs, nixgl, ... }:
 {
-  nixGL.packages = nixgl.packages;
-  nixGL.defaultWrapper = &quot;mesa&quot;;
-  nixGL.offloadWrapper = &quot;nvidiaPrime&quot;;
-  nixGL.installScripts = [ &quot;mesa&quot; &quot;nvidiaPrime&quot; ];
+  targets.genericLinux.nixGL = {
+    packages = nixgl.packages;
+    defaultWrapper = &quot;mesa&quot;;
+    offloadWrapper = &quot;nvidiaPrime&quot;;
+    installScripts = [ &quot;mesa&quot; &quot;nvidiaPrime&quot; ];
+  };
 
   programs.mpv = {
     enable = true;
@@ -460,39 +590,144 @@ demonstration purposes.</p><pre><code class="programlisting nix">{ config, lib, 
 </code></pre><p>The above example assumes a flake-based setup where <code class="literal">nixgl</code> was passed from the
 flake. When using channels, the example would instead begin with</p><pre><code class="programlisting nix">{ config, lib, pkgs, ... }:
 {
-  nixGL.packages = import &lt;nixgl&gt; { inherit pkgs; };
+  targets.genericLinux.nixGL.packages = import &lt;nixgl&gt; { inherit pkgs; };
   # The rest is the same as above
   ...
 </code></pre>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-updating" class="title" style="clear: both">Updating   </h2>  </div> </div></div><p>If you have installed Home Manager using the Nix channel method then
-updating Home Manager is done by first updating the channel. You can
-then switch to the updated Home Manager environment.</p><pre><code class="programlisting  shell">$ nix-channel --update
+</div>
+
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-usage-modular-services" class="title" style="clear: both">Modular Services   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-usage-modular-services-upstream">Reusing upstream package modules</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-modular-services-configdata">Configuration data</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-usage-modular-services-scope">Scope notes</a> </span></dt> </dl></div><p>Home Manager supports nixpkgs
+<a class="link" href="https://nixos.org/manual/nixos/unstable/#modular-services"  target="_top">modular services</a>
+under <a class="xref" href="options.xhtml#opt-home.services"  ><code class="option">home.services</code></a>. This is the Home Manager analog to the
+NixOS <code class="literal">system.services</code> namespace: each entry is an abstract service
+sourced from <code class="literal">&lt;nixpkgs/lib/services/lib.nix&gt;</code> with the upstream portable
+systemd module loaded into it, so service modules shipped with packages
+(e.g. <code class="literal">pkgs.&lt;name&gt;.passthru.services.default</code>) drop in unchanged –
+the same module evaluates on NixOS and on Home Manager.</p><p>A minimal example – run mpd as a user service:</p><pre><code class="programlisting nix">{ pkgs, ... }: {
+  home.services.mpd = {
+    process.argv = [ &quot;${pkgs.mpd}/bin/mpd&quot; &quot;--no-daemon&quot; ];
+  };
+}
+</code></pre><p>This produces <code class="literal">~/.config/systemd/user/mpd.service</code> with <code class="literal">ExecStart</code> set
+to the mpd binary and <code class="literal">WantedBy=default.target</code>.</p><p>Each service exposes the upstream NixOS-style schema: <a class="link" href="https://nixos.org/manual/nixos/unstable/#service-opt-process.argv"  target="_top"><code class="literal">process.argv</code></a>,
+<code class="literal">systemd.lib</code>, <code class="literal">systemd.mainExecStart</code>, <code class="literal">systemd.service</code>,
+<code class="literal">systemd.services</code>, <code class="literal">systemd.sockets</code>. Lifted units are translated from
+NixOS-style attrs (<code class="literal">wantedBy</code>, <code class="literal">serviceConfig</code>, <code class="literal">unitConfig</code>,
+<code class="literal">environment</code>, …) into the section-based INI shape
+(<code class="literal">{ Unit; Service; Install; }</code>) that Home Manager’s
+<a class="xref" href="options.xhtml#opt-systemd.user.services"  ><code class="option">systemd.user.services</code></a> consumes. Only common keys are mapped
+explicitly; uncommon options remain reachable via <code class="literal">unitConfig</code>,
+<code class="literal">serviceConfig</code>, or <code class="literal">socketConfig</code>.</p><p>Sub-services (nested <code class="literal">services.&lt;sub&gt;</code> inside another service) and their
+units are dashed under the parent service name. The empty unit key
+<code class="literal">&quot;&quot;</code> denotes the service’s <span class="emphasis"><em>primary</em></span> unit (lifted to a unit named
+after the service itself); <a class="link" href="https://nixos.org/manual/nixos/unstable/#service-opt-process.argv"  target="_top"><code class="literal">process.argv</code></a> becomes the default
+<code class="literal">ExecStart</code> for that unit, which defaults to <code class="literal">WantedBy=default.target</code>.</p><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-usage-modular-services-upstream" class="title" >Reusing upstream package modules   </h3>  </div> </div></div><p>Modular services exposed by packages under
+<code class="literal">pkgs.&lt;name&gt;.passthru.services.default</code> can be imported directly.
+For example, <code class="literal">pkgs.php</code>’s <a class="link" href="https://nixos.org/manual/nixos/stable/options#opt-_imports_=___pkgs.php.services.default___"  target="_top"><code class="literal">php-fpm</code></a>:</p><pre><code class="programlisting nix">{ pkgs, ... }: {
+  home.services.&quot;php-fpm&quot; = {
+    imports = [ pkgs.php.passthru.services.default ];
+    configData.&quot;php-fpm.conf&quot;.source = builtins.elemAt config.home.services.php-fpm.process.argv 2;
+    php-fpm.settings.mypool = {
+      listen = &quot;127.0.0.1:9000&quot;;
+      # FIXME: required by upstream modular service, but ignored when run as user
+      &quot;user&quot; = &quot;&quot;;
+      &quot;pm&quot; = &quot;dynamic&quot;;
+      &quot;pm.max_children&quot; = 75;
+      &quot;pm.min_spare_servers&quot; = 5;
+      &quot;pm.max_spare_servers&quot; = 20;
+    };
+  };
+}
+</code></pre><p>Some packages ship modules written for system services that include
+directives the user-session manager cannot honour (<code class="literal">DynamicUser</code>,
+<code class="literal">AmbientCapabilities</code>, …). The unit is still generated with those
+directives – user systemd silently ignores what it cannot apply.
+<code class="literal">WantedBy=multi-user.target</code> is automatically normalized to
+<code class="literal">WantedBy=default.target</code>. Other directives can be overridden per
+service:</p><pre><code class="programlisting nix">home.services.&quot;tunnel&quot; = {
+  imports = [ pkgs.ghostunnel.passthru.services.default ];
+  # ...
+  systemd.services.&quot;tunnel&quot;.serviceConfig.DynamicUser = lib.mkForce false;
+};
+</code></pre>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-usage-modular-services-configdata" class="title" >Configuration data   </h3>  </div> </div></div><p>Each service can declare configuration files via <code class="literal">configData.&lt;name&gt;</code>.
+These are materialized at <code class="literal">$XDG_CONFIG_HOME/home-services/&lt;service&gt;/&lt;name&gt;</code>
+(mirroring how NixOS lifts <code class="literal">configData</code> to <code class="literal">environment.etc</code>), with the
+absolute path injected back into <code class="literal">configData.&lt;name&gt;.path</code> so the service
+can refer to its files at a stable location:</p><pre><code class="programlisting nix">{ config, ... }:
+{
+  home.services.demo = {
+    process.argv = [ &quot;/bin/myapp&quot; &quot;--config&quot; config.home.services.demo.configData.&quot;app.toml&quot;.path ];
+    configData.&quot;app.toml&quot;.text = &#x27;&#x27;
+      port = 1234
+    &#x27;&#x27;;
+  };
+}
+</code></pre><p>The store paths of all enabled <code class="literal">configData</code> entries are automatically
+added to the primary unit’s <code class="literal">X-Reload-Triggers</code>, so <code class="literal">home-manager switch</code>
+restarts the service whenever any of its configuration files change. To
+reload instead of restart, override <code class="literal">X-SwitchMethod</code>:</p><pre><code class="programlisting nix">home.services.demo.systemd.services.&quot;&quot;.unitConfig.X-SwitchMethod = &quot;reload&quot;;
+</code></pre>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-usage-modular-services-scope" class="title" >Scope notes   </h3>  </div> </div></div><p>Home Manager mirrors the surface of nixpkgs’ portable systemd module:
+services and sockets only. Other unit kinds Home Manager supports
+natively under <a class="xref" href="options.xhtml#opt-systemd.user.services"  ><code class="option">systemd.user.services</code></a> (timers, paths, mounts, …)
+are intentionally not modeled on <code class="literal">home.services</code> until upstream grows them,
+to keep both surfaces aligned.</p>
+</div>
+
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-updating" class="title" style="clear: both">Updating   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-updating-flakes">Flake-Based Configurations</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-updating-channels">Channel-Based Configurations</a> </span></dt> </dl></div><p>Updating means moving to a newer revision of the Home Manager branch
+that your configuration already follows. For example, a configuration
+using <code class="literal">release-25.11</code> can update to a newer revision of <code class="literal">release-25.11</code>
+without changing release branches.</p><p>If you want to move from one release branch to another, such as
+<code class="literal">release-25.05</code> to <code class="literal">release-25.11</code>, or between a release branch and
+<code class="literal">master</code>, see
+<a class="link" href="index.xhtml#sec-upgrade-release" title="Upgrading to a new Home Manager release" >Upgrading to a new Home Manager release</a>.</p><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-updating-flakes" class="title" >Flake-Based Configurations   </h3>  </div> </div></div><p>Flake inputs are pinned in <code class="literal">flake.lock</code>, and Home Manager will keep using
+the pinned revisions until you update that lock file.</p><p>To update all inputs in the flake:</p><pre><code class="programlisting  shell">$ nix flake update
+</code></pre><p>To update only specific inputs, name them explicitly:</p><pre><code class="programlisting  shell">$ nix flake update home-manager nixpkgs
+</code></pre><p>These commands assume that your current directory is the flake. If not,
+pass the flake path or URI with <code class="literal">--flake &lt;flake-uri&gt;</code>.</p><p>After updating the lock file, rebuild with the command for your
+installation method.</p><p>For a standalone Home Manager flake:</p><pre><code class="programlisting  shell">$ home-manager switch --flake .
+</code></pre><p>For Home Manager as a NixOS module:</p><pre><code class="programlisting  shell">$ sudo nixos-rebuild switch --flake .
+</code></pre><p>For Home Manager as a nix-darwin module:</p><pre><code class="programlisting  shell">$ darwin-rebuild switch --flake .
+</code></pre>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-updating-channels" class="title" >Channel-Based Configurations   </h3>  </div> </div></div><p>Channels are mutable references outside the Home Manager configuration
+itself. Updating a channel moves it to a newer revision of the same
+channel or branch.</p><p>For a standalone Home Manager channel installation, update the user’s
+channels and then switch:</p><pre><code class="programlisting  shell">$ nix-channel --update
 …
 unpacking channels...
 $ home-manager switch
+</code></pre><p>For Home Manager as a NixOS module, update the root user’s Home Manager
+channel and rebuild the system:</p><pre><code class="programlisting  shell">$ sudo nix-channel --update home-manager
+$ sudo nixos-rebuild switch
+</code></pre><p>For Home Manager as a nix-darwin module, update the Home Manager channel
+used by your nix-darwin configuration and rebuild the system:</p><pre><code class="programlisting  shell">$ nix-channel --update home-manager
+$ darwin-rebuild switch
 </code></pre>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-upgrade-release" class="title" style="clear: both">Upgrading to a new Home Manager release   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-overview">Overview</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-understanding-versioning">Understanding Home Manager Versioning</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-understanding-channel">Channel-Based Installation (Traditional)</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-understanding-flake">Flake-Based Installation (Modern)</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-state-version">State Version Management</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-state-troubleshooting">Troubleshooting</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-resources">Additional Resources</a> </span></dt> </dl></div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-overview" class="title" >Overview   </h3>  </div> </div></div><p>When upgrading NixOS to a new major version (e.g., from 24.11 to
-25.05), you also need to upgrade your Home Manager channel to maintain
-compatibility. This guide covers the proper steps to upgrade Home
-Manager channels for NixOS 25.05.</p>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-understanding-versioning" class="title" >Understanding Home Manager Versioning   </h3>  </div> </div></div><p>Home Manager follows NixOS release cycles and provides corresponding branches:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><span class="strong"><strong>release-##.##</strong></span>: Stable branch for NixOS ##.## (current stable)</p></li><li class="listitem"><p><span class="strong"><strong>master</strong></span>: Development branch (tracks nixos-unstable)</p></li></ul></div><div class="note"><h3 class="title">Note</h3><p>Always use the Home Manager version that matches your NixOS version to
-avoid compatibility issues.</p></div>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-understanding-channel" class="title" >Channel-Based Installation (Traditional)   </h3>  </div> </div></div><div class="orderedlist"><ol class="orderedlist "  type="1"><li class="listitem"><p>First, verify your current Home Manager channel:</p><pre><code class="programlisting  shell">$ nix-channel --list
-</code></pre><p>You should see something like:</p><pre><code class="programlisting">home-manager https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz
-</code></pre></li><li class="listitem"><p>Update the Home Manager channel to a NixOS 25.05 compatible version:</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
-$ nix-channel --update
-</code></pre></li><li class="listitem"><p>Apply the changes:</p><pre><code class="programlisting  shell">$ home-manager switch
-</code></pre></li></ol></div>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-understanding-flake" class="title" >Flake-Based Installation (Modern)   </h3>  </div> </div></div><p>If you’re using Home Manager with Nix flakes, update your <code class="literal">flake.nix</code>:</p><pre><code class="programlisting nix">{
+</div>
+
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-upgrade-release" class="title" style="clear: both">Upgrading to a new Home Manager release   </h2>  </div> </div></div><div class="toc"> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-overview">Overview</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-understanding-versioning">Understanding Home Manager Versioning</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-understanding-flake">Flake-Based Installation</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-understanding-channel">Channel-Based Installation</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-state-version">State Version Management</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-state-troubleshooting">Troubleshooting</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-upgrade-release-resources">Additional Resources</a> </span></dt> </dl></div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-overview" class="title" >Overview   </h3>  </div> </div></div><p>When moving your configuration to a new Nixpkgs release branch, you
+should also move Home Manager to the matching release branch. On NixOS
+this usually means upgrading Home Manager together with NixOS. On
+standalone and nix-darwin installations, match Home Manager to the
+Nixpkgs branch used by your configuration. The examples below use 25.11;
+replace this with the release branch you are upgrading to.</p><p>If your configuration follows <code class="literal">nixos-unstable</code> or <code class="literal">nixpkgs-unstable</code>,
+use Home Manager’s <code class="literal">master</code> branch.</p>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-understanding-versioning" class="title" >Understanding Home Manager Versioning   </h3>  </div> </div></div><p>Home Manager follows NixOS release cycles and provides corresponding branches:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><span class="strong"><strong>release-&lt;version&gt;</strong></span>: Stable branch for the matching NixOS or
+Nixpkgs release, such as <code class="literal">release-25.11</code>.</p></li><li class="listitem"><p><span class="strong"><strong>master</strong></span>: Development branch (tracks nixos-unstable)</p></li></ul></div><div class="note"><h3 class="title">Note</h3><p>Use the Home Manager branch that matches the Nixpkgs branch used to
+evaluate your Home Manager configuration. For stable NixOS
+configurations, this is normally the same as your NixOS version.</p></div>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-understanding-flake" class="title" >Flake-Based Installation   </h3>  </div> </div></div><p>If you are using Home Manager with Nix flakes, update your <code class="literal">nixpkgs</code> and
+<code class="literal">home-manager</code> inputs together:</p><pre><code class="programlisting nix">{
   description = &quot;Home Manager configuration&quot;;
 
   inputs = {
-    # Increment release branch for NixOS
-    nixpkgs.url = &quot;github:NixOS/nixpkgs/nixos-25.05&quot;;
+    # Match the Nixpkgs branch to the release you are using.
+    nixpkgs.url = &quot;github:NixOS/nixpkgs/nixos-25.11&quot;;
+
     home-manager = {
-      # Follow corresponding `release` branch from Home Manager
-      url = &quot;github:nix-community/home-manager/release-25.05&quot;;
-      inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
+      # Match the Home Manager branch to the Nixpkgs branch above.
+      url = &quot;github:nix-community/home-manager/release-25.11&quot;;
     };
   };
 
@@ -503,32 +738,65 @@ $ nix-channel --update
     };
   };
 }
-</code></pre><p>Then update and rebuild. If you are using Home Manager standalone:</p><pre><code class="programlisting  shell">$ nix flake update
+</code></pre><p>For <code class="literal">nixos-unstable</code> or <code class="literal">nixpkgs-unstable</code>, use the <code class="literal">master</code> branch
+instead:</p><pre><code class="programlisting nix">{
+  inputs = {
+    nixpkgs.url = &quot;github:NixOS/nixpkgs/nixos-unstable&quot;;
+
+    home-manager = {
+      url = &quot;github:nix-community/home-manager&quot;;
+    };
+  };
+}
+</code></pre><p>Then update the lock file and rebuild using the command for your
+installation method.</p><p>For a standalone Home Manager flake:</p><pre><code class="programlisting  shell">$ nix flake update
 $ home-manager switch --flake .
-</code></pre><p>And if you are using Home Manager as a NixOS module then you will need
-to update your system configuration instead and run</p><pre><code class="programlisting  shell">$ nix flake update
+</code></pre><p>For Home Manager as a NixOS module:</p><pre><code class="programlisting  shell">$ nix flake update
+$ sudo nixos-rebuild switch --flake .
+</code></pre><p>For Home Manager as a nix-darwin module:</p><pre><code class="programlisting  shell">$ nix flake update
+$ darwin-rebuild switch --flake .
+</code></pre><p>These commands assume that your current directory is the flake. If not,
+pass the flake path or URI with <code class="literal">--flake &lt;flake-uri&gt;</code>.</p>
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-understanding-channel" class="title" >Channel-Based Installation   </h3>  </div> </div></div><p>For a standalone channel-based installation, first verify your current
+Home Manager channel:</p><pre><code class="programlisting  shell">$ nix-channel --list
+</code></pre><p>The entry identifies the Home Manager branch currently in use. For
+example:</p><pre><code class="programlisting">home-manager https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz
+</code></pre><p>Update the Home Manager channel to the branch matching your Nixpkgs
+release, then switch:</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+$ nix-channel --update
+$ home-manager switch
+</code></pre><p>When Home Manager is installed as a NixOS module with channels, update
+the root user’s Home Manager channel and rebuild the system:</p><pre><code class="programlisting  shell">$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+$ sudo nix-channel --update
 $ sudo nixos-rebuild switch
+</code></pre><p>When Home Manager is installed as a nix-darwin module with channels,
+update the Home Manager channel used by your nix-darwin configuration
+and rebuild the system:</p><pre><code class="programlisting  shell">$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
+$ nix-channel --update
+$ darwin-rebuild switch
 </code></pre>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-state-version" class="title" >State Version Management   </h3>  </div> </div></div><div class="warning"><h3 class="title">Warning</h3><p>Careful updating your <code class="literal">home.stateVersion</code> when upgrading Home Manager.</p></div><p>The <code class="literal">stateVersion</code> is best to remain set to the NixOS version you
-<span class="strong"><strong>first installed</strong></span> Home Manager</p><pre><code class="programlisting nix">{
-  home.stateVersion = &quot;24.11&quot;;  # Example: if you first installed on 24.11
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-state-version" class="title" >State Version Management   </h3>  </div> </div></div><div class="warning"><h3 class="title">Warning</h3><p>Careful updating your <code class="literal">home.stateVersion</code> when upgrading Home Manager.</p></div><p>The <code class="literal">stateVersion</code> should remain set to the Home Manager release you
+first used for this home configuration.</p><pre><code class="programlisting nix">{
+  # Example: if this home configuration was first created on 24.11.
+  home.stateVersion = &quot;24.11&quot;;
 }
 </code></pre><p><span class="strong"><strong>Why?</strong></span> The <code class="literal">stateVersion</code> ensures backward compatibility and
-prevents breaking changes from affecting your existing configuration.</p><p><span class="strong"><strong>Remember:</strong></span> Channel version is not the same as State version. Update
-the channel, keep the <code class="literal">stateVersion</code> unchanged. Advanced users can
-view the changes between releases and see if any of the <code class="literal">stateVersion</code>
-changes will affect them and increment, if they migrate their
-configurations to follow the changed evaluation.</p>
+prevents breaking changes from affecting your existing configuration.</p><p><span class="strong"><strong>Remember:</strong></span> Channel or flake input version is not the same as state
+version. Update Home Manager, keep <code class="literal">home.stateVersion</code> unchanged, and
+only change it after reading the release notes and migrating any
+affected configuration.</p>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-state-troubleshooting" class="title" >Troubleshooting   </h3>  </div> </div></div><div class="section"> <div class="titlepage">  <div>   <div>    <h4 id="sec-upgrade-release-state-troubleshooting-common-issues" class="title" >Common Issues   </h4>  </div> </div></div><p>Check the <a class="link" href="release-notes.xhtml" title="Appendix D. Release Notes" >Home Manager Release Notes</a> for breaking changes.</p><div class="orderedlist"><ol class="orderedlist "  type="1"><li class="listitem"><p><span class="strong"><strong>Version Mismatch Warning</strong></span>: If you see warnings about version
-mismatches, ensure your Home Manager version matches your NixOS
-version.</p></li><li class="listitem"><p><span class="strong"><strong>Module Changes</strong></span>: Modules are constantly being updated with new
+mismatches, ensure your Home Manager branch matches the Nixpkgs
+branch used by your configuration. For NixOS stable releases, this
+usually means matching your NixOS version.</p></li><li class="listitem"><p><span class="strong"><strong>Module Changes</strong></span>: Modules are constantly being updated with new
 features to keep up with changes in upstream packaging or to fix
 bugs and add features. If you have an unexpected change, check if
 there was something noted in the release notes or news entries.</p></li><li class="listitem"><p><span class="strong"><strong>Channel Not Found</strong></span>: If <code class="literal">nix-channel --list</code> shows no channels,
-you might be using a different installation method (like flakes or
-NixOS module).</p></li></ol></div>
+you might be using a different installation method, such as flakes,
+or Home Manager may be imported through your system configuration.</p></li></ol></div>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h4 id="sec-upgrade-release-state-troubleshooting-verification" class="title" >Verification   </h4>  </div> </div></div><p>After upgrading, verify the installation:</p><pre><code class="programlisting  shell">$ home-manager --version
-</code></pre><p>This should show version 25.05 or indicate it’s using the release-25.05 branch.</p>
+</code></pre><p>This should show the Home Manager version or indicate that it is using
+the expected release branch.</p>
 </div>
 
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h3 id="sec-upgrade-release-resources" class="title" >Additional Resources   </h3>  </div> </div></div><div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc;"><li class="listitem"><p><a class="link" href="https://nixos.org/manual/nixos/stable/release-notes"  target="_top">NixOS Stable Release Notes</a></p></li><li class="listitem"><p><a class="link" href="release-notes.xhtml" title="Appendix D. Release Notes" >Home Manager Release Notes</a></p></li></ul></div>
@@ -547,10 +815,23 @@ home directory independently of the system as a whole. See
 to perform this installation.</p></li><li class="listitem"><p>As a module within a NixOS system configuration. This allows the
 user profiles to be built together with the system when running
 <code class="literal">nixos-rebuild</code>. See <a class="link" href="index.xhtml#sec-flakes-nixos-module" title="NixOS module" >NixOS module</a> for a
-description of this setup.</p></li><li class="listitem"><p>This allows the user profiles to be built together with the system
-when running <code class="literal">darwin-rebuild</code>. See <a class="link" href="index.xhtml#sec-flakes-nix-darwin-module" title="nix-darwin module" >nix-darwin
-module</a> for a description of this
-setup.</p></li></ol></div><div class="toc"> <p><strong>Table of Contents</strong></p> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-flakes-prerequisites">Prerequisites</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-standalone">Standalone setup</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nixos-module">NixOS module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nix-darwin-module">nix-darwin module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-flake-parts-module">flake-parts module</a> </span></dt> </dl></div></div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-flakes-prerequisites" class="title" style="clear: both">Prerequisites   </h2>  </div> </div></div><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Install Nix 2.4 or later, or have it in <code class="literal">nix-shell</code>.</p></li><li class="listitem"><p>Enable experimental features <code class="literal">nix-command</code> and <code class="literal">flakes</code>.</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: circle;"><li class="listitem"><p>When using NixOS, add the following to your <code class="literal">configuration.nix</code>
+description of this setup.</p></li><li class="listitem"><p>As a module within a <a class="link" href="https://github.com/nix-darwin/nix-darwin/"  target="_top">nix-darwin</a>
+system configuration. This allows the user profiles to be built
+together with the system when running <code class="literal">darwin-rebuild</code>. See
+<a class="link" href="index.xhtml#sec-flakes-nix-darwin-module" title="nix-darwin module" >nix-darwin module</a> for a
+description of this setup.</p></li></ol></div><p>Advanced users may want Home Manager’s <code class="literal">nixpkgs</code> input to follow the
+same Nixpkgs input as the rest of their flake. This avoids a second
+Nixpkgs input and makes Home Manager use the same pinned Nixpkgs source
+revision as the rest of the configuration:</p><pre><code class="programlisting  nix">home-manager.inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
+</code></pre><p>This removes the compatibility assumption between Home Manager and the
+Nixpkgs revision in Home Manager’s own lock file, so use it carefully,
+especially when tracking unstable branches.</p><p>This does not by itself make Home Manager use the same <code class="literal">pkgs</code> value as
+your NixOS or nix-darwin system. In NixOS and nix-darwin module setups,
+<code class="literal">home-manager.useGlobalPkgs = true</code> controls that behavior by making
+Home Manager modules receive the system <code class="literal">pkgs</code> value. When
+<code class="literal">home-manager.useGlobalPkgs</code> is enabled, configure Nixpkgs overlays and
+configuration at the system level instead of through Home Manager
+<code class="literal">nixpkgs.*</code> options.</p><div class="toc"> <p><strong>Table of Contents</strong></p> <dl class="toc">  <dt> <span class="section">  <a href="index.xhtml#sec-flakes-prerequisites">Prerequisites</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-standalone">Standalone setup</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nixos-module">NixOS module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-nix-darwin-module">nix-darwin module</a> </span></dt><dt> <span class="section">  <a href="index.xhtml#sec-flakes-flake-parts-module">flake-parts module</a> </span></dt> </dl></div></div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-flakes-prerequisites" class="title" style="clear: both">Prerequisites   </h2>  </div> </div></div><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Install Nix 2.4 or later, or have it in <code class="literal">nix-shell</code>.</p></li><li class="listitem"><p>Enable experimental features <code class="literal">nix-command</code> and <code class="literal">flakes</code>.</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: circle;"><li class="listitem"><p>When using NixOS, add the following to your <code class="literal">configuration.nix</code>
 and rebuild your system.</p><pre><code class="programlisting  nix">nix.settings.experimental-features = &quot;nix-command flakes&quot;;
 </code></pre></li><li class="listitem"><p>If you are not using NixOS, add the following to <code class="literal">nix.conf</code>
 (located at <code class="literal">~/.config/nix/</code> or <code class="literal">/etc/nix/nix.conf</code>).</p><pre><code class="programlisting  bash">experimental-features = nix-command flakes
@@ -566,25 +847,44 @@ introduction about writing a Home Manager configuration.</p></li></ul></div>
 user, you can run the Home Manager <code class="literal">init</code> command directly from its
 flake.</p><p>For example, if you are using the unstable version of Nixpkgs or NixOS,
 then to generate and activate a basic configuration run the command</p><pre><code class="programlisting  shell">$ nix run home-manager/master -- init --switch
-</code></pre><p>For Nixpkgs or NixOS version 25.05 run</p><pre><code class="programlisting  shell">$ nix run home-manager/release-25.05 -- init --switch
+</code></pre><p>For Nixpkgs or NixOS version 25.11 run</p><pre><code class="programlisting  shell">$ nix run home-manager/release-25.11 -- init --switch
 </code></pre><p>This will generate a <code class="literal">flake.nix</code> and a <code class="literal">home.nix</code> file in
-<code class="literal">~/.config/home-manager</code>, creating the directory if it does not exist.</p><p>If you omit the <code class="literal">--switch</code> option then the activation will not happen.
+<code class="literal">~/.config/home-manager</code>, creating the directory if it does not exist.</p><p>If you need to pass additional values from your flake to <code class="literal">home.nix</code> or any
+imported Home Manager modules, use <code class="literal">extraSpecialArgs</code> in the call to
+<code class="literal">home-manager.lib.homeManagerConfiguration</code>:</p><pre><code class="programlisting  nix">{
+  inputs = {
+    nixpkgs.url = &quot;github:nixos/nixpkgs/nixos-unstable&quot;;
+    home-manager.url = &quot;github:nix-community/home-manager&quot;;
+  };
+
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+    homeConfigurations.jdoe = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      extraSpecialArgs = { inherit inputs; };
+      modules = [ ./home.nix ];
+    };
+  };
+}
+</code></pre><p>Any attribute in <code class="literal">extraSpecialArgs</code> becomes a module argument, so <code class="literal">home.nix</code>
+or imported modules can declare arguments such as <code class="literal">{ inputs, ... }:</code>.</p><p>The lower-level mechanism behind this is <code class="literal">_module.args</code>. Set
+<code class="literal">_module.args.&lt;name&gt;</code> from inside a module only when you need to provide a
+module argument from within the module graph itself. For values that originate
+outside the module graph, such as flake inputs, prefer <code class="literal">extraSpecialArgs</code>.</p><p>If you omit the <code class="literal">--switch</code> option then the activation will not happen.
 This is useful if you want to inspect and edit the configuration before
 activating it.</p><pre><code class="programlisting  shell">$ nix run home-manager/$branch -- init
 $ # Edit files in ~/.config/home-manager
 $ nix run home-manager/$branch -- init --switch
-</code></pre><p>Where <code class="literal">$branch</code> is one of <code class="literal">master</code> or <code class="literal">release-25.05</code>.</p><p>After the initial activation has completed successfully then building
+</code></pre><p>Where <code class="literal">$branch</code> is one of <code class="literal">master</code> or <code class="literal">release-25.11</code>.</p><p>After the initial activation has completed successfully then building
 and activating your flake-based configuration is as simple as</p><pre><code class="programlisting  shell">$ home-manager switch
 </code></pre><p>It is possible to override the default configuration directory, if you
 want. For example,</p><pre><code class="programlisting  shell">$ nix run home-manager/$branch -- init --switch ~/hmconf
 $ # And after the initial activation.
 $ home-manager switch --flake ~/hmconf
-</code></pre><div class="note"><h3 class="title">Note</h3><p>The flake inputs are not automatically updated by Home Manager. You need
-to use the standard <code class="literal">nix flake update</code> command for that.</p><p>If you only want to update a single flake input, then the command
-<code class="literal">nix flake lock --update-input &lt;input&gt;</code> can be used.</p><p>You can also pass flake-related options such as <code class="literal">--recreate-lock-file</code>
-or <code class="literal">--update-input &lt;input&gt;</code> to <code class="literal">home-manager</code> when building or
-switching, and these options will be forwarded to <code class="literal">nix build</code>. See the
-<a class="link" href="https://wiki.nixos.org/wiki/Flakes"  target="_top">NixOS Wiki page</a> for details.</p></div>
+</code></pre><div class="note"><h3 class="title">Note</h3><p>The flake inputs are not automatically updated by Home Manager. Update
+the lock file with <code class="literal">nix flake update</code> before switching if you want to
+use newer input revisions.</p><p>If you only want to update specific flake inputs, name them explicitly,
+for example <code class="literal">nix flake update nixpkgs home-manager</code>.</p><p>These commands assume that your current directory is the flake. If not,
+pass the flake path or URI with <code class="literal">--flake &lt;flake-uri&gt;</code>.</p></div>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-flakes-nixos-module" class="title" style="clear: both">NixOS module   </h2>  </div> </div></div><p>To use Home Manager as a NixOS module, a bare-minimum <code class="literal">flake.nix</code> would
 be as follows:</p><pre><code class="programlisting  nix">{
   description = &quot;NixOS configuration&quot;;
@@ -592,7 +892,6 @@ be as follows:</p><pre><code class="programlisting  nix">{
   inputs = {
     nixpkgs.url = &quot;github:nixos/nixpkgs/nixos-unstable&quot;;
     home-manager.url = &quot;github:nix-community/home-manager&quot;;
-    home-manager.inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
@@ -605,20 +904,25 @@ be as follows:</p><pre><code class="programlisting  nix">{
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.jdoe = ./home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
           }
         ];
       };
     };
   };
 }
-</code></pre><p>The Home Manager configuration is then part of the NixOS configuration
+</code></pre><p>Use <code class="literal">home-manager.extraSpecialArgs</code> to pass arguments from your flake to
+<code class="literal">home.nix</code> and any imported Home Manager modules. For example, the
+configuration above makes the complete <code class="literal">inputs</code> attrset available to modules,
+so they can declare arguments such as <code class="literal">{ inputs, ... }:</code>.</p><p>The lower-level mechanism behind this is <code class="literal">_module.args</code>. Set
+<code class="literal">_module.args.&lt;name&gt;</code> from inside a module only when you need to provide a
+module argument from within the module graph itself. For values that originate
+outside the module graph, such as flake inputs, prefer
+<code class="literal">home-manager.extraSpecialArgs</code>.</p><p>The Home Manager configuration is then part of the NixOS configuration
 and is automatically rebuilt with the system when using the appropriate
-command for the system, such as
-<code class="literal">nixos-rebuild switch --flake &lt;flake-uri&gt;</code>.</p><p>You can use the above <code class="literal">flake.nix</code> as a template in <code class="literal">/etc/nixos</code> by</p><pre><code class="programlisting  shell">$ nix flake new /etc/nixos -t github:nix-community/home-manager#nixos
+command for the system, such as</p><pre><code class="programlisting  shell">$ nixos-rebuild switch --flake /etc/nixos
+</code></pre><p>You can use the above <code class="literal">flake.nix</code> as a template in <code class="literal">/etc/nixos</code> by</p><pre><code class="programlisting  shell">$ nix flake new /etc/nixos -t github:nix-community/home-manager#nixos
 </code></pre>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-flakes-nix-darwin-module" class="title" style="clear: both">nix-darwin module   </h2>  </div> </div></div><p>The flake-based setup of the Home Manager nix-darwin module is similar
 to that of NixOS. The <code class="literal">flake.nix</code> would be:</p><pre><code class="programlisting  nix">{
@@ -629,7 +933,6 @@ to that of NixOS. The <code class="literal">flake.nix</code> would be:</p><pre><
     darwin.url = &quot;github:nix-darwin/nix-darwin&quot;;
     darwin.inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
     home-manager.url = &quot;github:nix-community/home-manager&quot;;
-    home-manager.inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
   };
 
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
@@ -642,40 +945,69 @@ to that of NixOS. The <code class="literal">flake.nix</code> would be:</p><pre><
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.jdoe = ./home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
           }
         ];
       };
     };
   };
 }
-</code></pre><p>and it is also rebuilt with the nix-darwin generations. The rebuild
-command here may be <code class="literal">darwin-rebuild switch --flake &lt;flake-uri&gt;</code>.</p><p>You can use the above <code class="literal">flake.nix</code> as a template in <code class="literal">~/.config/darwin</code> by</p><pre><code class="programlisting  shell">$ nix flake new ~/.config/darwin -t github:nix-community/home-manager#nix-darwin
+</code></pre><p>Use <code class="literal">home-manager.extraSpecialArgs</code> to pass arguments from your flake to
+<code class="literal">home.nix</code> and any imported Home Manager modules. For example, the
+configuration above makes the complete <code class="literal">inputs</code> attrset available to modules,
+so they can declare arguments such as <code class="literal">{ inputs, ... }:</code>.</p><p>The lower-level mechanism behind this is <code class="literal">_module.args</code>. Set
+<code class="literal">_module.args.&lt;name&gt;</code> from inside a module only when you need to provide a
+module argument from within the module graph itself. For values that originate
+outside the module graph, such as flake inputs, prefer
+<code class="literal">home-manager.extraSpecialArgs</code>.</p><p>and it is also rebuilt with the nix-darwin generations. The rebuild
+command here may be <code class="literal">darwin-rebuild switch --flake ~/.config/darwin</code>.</p><p>You can use the above <code class="literal">flake.nix</code> as a template in <code class="literal">~/.config/darwin</code> by</p><pre><code class="programlisting  shell">$ nix flake new ~/.config/darwin -t github:nix-community/home-manager#nix-darwin
 </code></pre>
-</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-flakes-flake-parts-module" class="title" style="clear: both">flake-parts module   </h2>  </div> </div></div><p>When using <a class="link" href="https://flake.parts"  target="_top">flake-parts</a>
-you may wish to import Home Manager’s flake module,
-<code class="literal">flakeModules.home-manager</code>.</p><pre><code class="programlisting  nix">{
+</div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="sec-flakes-flake-parts-module" class="title" style="clear: both">flake-parts module   </h2>  </div> </div></div><p>When using <a class="link" href="https://flake.parts"  target="_top">flake-parts</a> you may wish to import Home
+Manager’s flake module, <code class="literal">flakeModules.home-manager</code>.</p><pre><code class="programlisting nix">{
   description = &quot;flake-parts configuration&quot;;
 
   inputs = {
     nixpkgs.url = &quot;github:nixos/nixpkgs/nixos-unstable&quot;;
     home-manager.url = &quot;github:nix-community/home-manager&quot;;
-    home-manager.inputs.nixpkgs.follows = &quot;nixpkgs&quot;;
     flake-parts.url = &quot;github:hercules-ci/flake-parts&quot;;
   };
 
-  outputs = inputs@{ flake-parts, ... }:
+  outputs = inputs@{
+    flake-parts,
+    home-manager,
+    nixpkgs,
+    ...
+  }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         # Import home-manager&#x27;s flake module
         inputs.home-manager.flakeModules.home-manager
       ];
       flake = {
-        # Define `homeModules`, `homeConfigurations`,
-        # `nixosConfigurations`, etc here
+        # Reusable Home Manager module.
+        homeModules.bash= { pkgs, ... }: {
+          programs.bash = {
+            enable = true;
+            shellAliases = {
+              ll = &quot;ls -l&quot;;
+            };
+          };
+          home.packages = [ pkgs.hello ];
+        };
+
+        # Concrete Home Manager configuration.
+        homeConfigurations.alice = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { system = &quot;x86_64-linux&quot;; };
+          modules = [
+            inputs.self.homeModules.bash
+            {
+              home.username = &quot;alice&quot;;
+              home.homeDirectory = &quot;/home/alice&quot;;
+              home.stateVersion = &quot;25.11&quot;;
+            }
+          ];
+        };
       };
       # See flake.parts for more features, such as `perSystem`
     };
@@ -993,7 +1325,7 @@ truly noteworthy news. For example, a bug fix or new option does
 generally not need a news entry.</p><p>If you do have a change worthy of a news entry then please add one in
 <a class="link" href="https://github.com/nix-community/home-manager/blob/master/modules/misc/news.nix"  target="_top"><code class="literal">news.nix</code></a>
 but you should follow some basic guidelines:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Use the included news entry generator to create a news entry file:</p><pre><code class="programlisting  shell">$ nix run .#create-news-entry
-</code></pre><p>Alternatively, you can directly use the script:</p><pre><code class="programlisting  shell">$ modules/misc/news/create-news-entry.sh
+</code></pre><p>Alternatively, you can directly use the script:</p><pre><code class="programlisting  shell">$ nix-shell -A dev --run modules/misc/news/create-news-entry.sh
 </code></pre><p>This will create a new file inside the <code class="literal">modules/misc/news</code> directory
 with some placeholder information that you can edit.</p></li><li class="listitem"><p>The entry condition should be as specific as possible. For example,
 if you are changing or deprecating a specific option then you could
@@ -1135,8 +1467,8 @@ $ nix run .#tests -- alacritty -- --verbose
 through</p><pre><code class="programlisting  shell">$ nix-build --pure tests --option allow-import-from-derivation false -A build.alacritty-empty-settings
 </code></pre><p>However, those invocations will impurely source the system’s Nixpkgs,
 and may cause failures. To run against the Nixpkgs from the <code class="literal">flake.lock</code> file,
-use instead e.g.</p><pre><code class="programlisting  shell">$ nix build --reference-lock-file flake.lock --option allow-import-from-derivation false ./tests#test-all
-</code></pre><p>or</p><pre><code class="programlisting  shell">$ nix build --reference-lock-file flake.lock --option allow-import-from-derivation false ./tests#test-alacritty-empty-settings
+use instead e.g.</p><pre><code class="programlisting  shell">$ nix build --option allow-import-from-derivation false .#test-all
+</code></pre><p>or</p><pre><code class="programlisting  shell">$ nix build --option allow-import-from-derivation false .#test-alacritty-empty-settings
 </code></pre><p>Some tests may be marked with <code class="literal">enableLegacyIfd</code>, those may be run by run with e.g.</p><pre><code class="programlisting  shell">$ nix-build --pure tests --arg enableLegacyIfd true -A build.mytest
 </code></pre>
 </div>
@@ -1221,7 +1553,10 @@ way. In Bash and Z shell this can be done by adding</p><pre><code class="program
 </code></pre><p>to your <code class="literal">.profile</code> and <code class="literal">.zshrc</code> files, respectively. The
 <code class="literal">hm-session-vars.sh</code> file should work in most Bourne-like shells. For
 fish shell, it is possible to source it using <a class="link" href="https://github.com/oh-my-fish/plugin-foreign-env"  target="_top">the foreign-env
-plugin</a></p><pre><code class="programlisting  bash">fenv source &quot;$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh&quot; &gt; /dev/null
+plugin</a> or using the builtin
+<a class="link" href="https://github.com/bouk/babelfish"  target="_top">babelfish</a>-translated variables:</p><pre><code class="programlisting  bash">fenv source &quot;$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh&quot; &gt; /dev/null
+# or
+source &quot;$HOME/.nix-profile/etc/profile.d/hm-session-vars.fish&quot;
 </code></pre>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="_how_to_set_up_a_configuration_for_multiple_users_machines" class="title" style="clear: both">How to set up a configuration for multiple users/machines?   </h2>  </div> </div></div><p>A typical way to prepare a repository of configurations for multiple
 logins and machines is to prepare one &quot;top-level&quot; file for each unique
@@ -1250,25 +1585,83 @@ might get is</p><pre><code class="programlisting">error: GDBus.Error:org.freedes
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="_how_do_i_install_packages_from_nixpkgs_unstable" class="title" style="clear: both">How do I install packages from Nixpkgs unstable?   </h2>  </div> </div></div><p>If you are using a stable version of Nixpkgs but would like to install
 some particular packages from Nixpkgs unstable – or some other channel
 – then you can import the unstable Nixpkgs and refer to its packages
-within your configuration. Something like</p><pre><code class="programlisting  nix">{ pkgs, config, ... }:
+within your configuration.</p><p>With channels, something like</p><pre><code class="programlisting  nix">{ pkgs, config, ... }:
 
 let
-
   pkgsUnstable = import &lt;nixpkgs-unstable&gt; {};
-
 in
+{
+  home.packages = [
+    pkgsUnstable.foo
+  ];
+  # …
+}
+</code></pre><p>should work provided you have a Nix channel called <code class="literal">nixpkgs-unstable</code>.</p><p>You can add the <code class="literal">nixpkgs-unstable</code> channel by running</p><pre><code class="programlisting  shell">$ nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+$ nix-channel --update
+</code></pre><p>With flakes, add another Nixpkgs input and pass its packages to your
+Home Manager modules. For example, a standalone Home Manager flake can
+define the following. Replace 25.11 with the release branch your
+configuration follows.</p><pre><code class="programlisting  nix">{
+  inputs = {
+    nixpkgs.url = &quot;github:NixOS/nixpkgs/nixos-25.11&quot;;
+    nixpkgs-unstable.url = &quot;github:NixOS/nixpkgs/nixpkgs-unstable&quot;;
+    home-manager.url = &quot;github:nix-community/home-manager/release-25.11&quot;;
+  };
+
+  outputs =
+    { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+    let
+      # Replace this with the system of your Home Manager configuration.
+      system = &quot;x86_64-linux&quot;;
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgsUnstable = nixpkgs-unstable.legacyPackages.${system};
+    in
+    {
+      homeConfigurations.jdoe = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit pkgsUnstable; };
+        modules = [ ./home.nix ];
+      };
+    };
+}
+</code></pre><p>and then use the extra argument in <code class="literal">home.nix</code>:</p><pre><code class="programlisting  nix">{ pkgsUnstable, ... }:
 
 {
   home.packages = [
     pkgsUnstable.foo
   ];
-
-  # …
 }
-</code></pre><p>should work provided you have a Nix channel called <code class="literal">nixpkgs-unstable</code>.</p><p>You can add the <code class="literal">nixpkgs-unstable</code> channel by running</p><pre><code class="programlisting  shell">$ nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
-$ nix-channel --update
-</code></pre><p>Note, the package will not be affected by any package overrides,
-overlays, etc.</p>
+</code></pre><p>When Home Manager is used as a NixOS or nix-darwin module, pass the
+extra package set with <code class="literal">home-manager.extraSpecialArgs</code> in the system
+configuration:</p><pre><code class="programlisting  nix">outputs =
+  { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  let
+    # Replace this with the system of your NixOS or nix-darwin configuration.
+    system = &quot;x86_64-linux&quot;;
+  in
+  {
+    nixosConfigurations.hostname = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        home-manager.nixosModules.home-manager
+        ({ config, ... }: {
+          home-manager.extraSpecialArgs = {
+            pkgsUnstable = import nixpkgs-unstable {
+              inherit system;
+              config = config.nixpkgs.config;
+              overlays = config.nixpkgs.overlays;
+            };
+
+            # If you use a stock Nixpkgs configuration, you can use:
+            # pkgsUnstable = nixpkgs-unstable.legacyPackages.${system};
+          };
+        })
+      ];
+    };
+  };
+</code></pre><p>The nix-darwin setup is the same pattern with
+<code class="literal">darwin.lib.darwinSystem</code> and
+<code class="literal">home-manager.darwinModules.home-manager</code>.</p>
 </div><div class="section"> <div class="titlepage">  <div>   <div>    <h2 id="_how_do_i_change_the_package_used_by_a_module" class="title" style="clear: both">How do I change the package used by a module?   </h2>  </div> </div></div><p>By default Home Manager will install the package provided by your chosen
 <code class="literal">nixpkgs</code> channel but occasionally you might end up needing to change
 this package. This can typically be done in two ways.</p><div class="orderedlist"><ol class="orderedlist "  type="1"><li class="listitem"><p>If the module provides a <code class="literal">package</code> option, such as
@@ -1279,39 +1672,75 @@ for more information on package overrides. Alternatively, if you want
 to use the <code class="literal">beets</code> package from Nixpkgs unstable, then a configuration like</p><pre><code class="programlisting  nix">{ pkgs, config, ... }:
 
 let
-
   pkgsUnstable = import &lt;nixpkgs-unstable&gt; {};
-
 in
+{
+  programs.beets.package = pkgsUnstable.beets;
+
+  # …
+}
+</code></pre><p>should work OK. With flakes, pass the unstable package set as
+described in
+<a class="link" href="index.xhtml#_how_do_i_install_packages_from_nixpkgs_unstable" title="How do I install packages from Nixpkgs unstable?" >How do I install packages from Nixpkgs unstable?</a>
+and then use the extra module argument:</p><pre><code class="programlisting  nix">{ pkgsUnstable, ... }:
 
 {
   programs.beets.package = pkgsUnstable.beets;
 
   # …
 }
-</code></pre><p>should work OK.</p></li><li class="listitem"><p>If no <code class="literal">package</code> option is available then you can typically change
+</code></pre></li><li class="listitem"><p>If no <code class="literal">package</code> option is available then you can typically change
 the relevant package using an
 <a class="link" href="https://nixos.org/nixpkgs/manual/#chap-overlays"  target="_top">overlay</a>.</p><p>For example, if you want to use the <code class="literal">programs.skim</code> module but use
 the <code class="literal">skim</code> package from Nixpkgs unstable, then a configuration like</p><pre><code class="programlisting  nix">{ pkgs, config, ... }:
 
 let
-
   pkgsUnstable = import &lt;nixpkgs-unstable&gt; {};
-
 in
 
 {
   programs.skim.enable = true;
 
   nixpkgs.overlays = [
-    (self: super: {
+    (_final: _prev: {
       skim = pkgsUnstable.skim;
     })
   ];
 
   # …
 }
-</code></pre><p>should work OK.</p></li></ol></div>
+</code></pre><p>should work OK.</p><p>The same Home Manager overlay works in a flake-based standalone
+configuration if <code class="literal">pkgsUnstable</code> is passed to the Home Manager
+module:</p><pre><code class="programlisting  nix">{ pkgsUnstable, ... }:
+
+{
+  programs.skim.enable = true;
+
+  nixpkgs.overlays = [
+    (_final: _prev: {
+      skim = pkgsUnstable.skim;
+    })
+  ];
+
+  # …
+}
+</code></pre><p>This also works when Home Manager is used as a NixOS or nix-darwin
+module without <code class="literal">home-manager.useGlobalPkgs = true</code>. If
+<code class="literal">home-manager.useGlobalPkgs = true</code> is enabled, Home Manager uses
+the system package set and the <code class="literal">nixpkgs.*</code> options inside Home
+Manager are disabled. In that case, put the overlay in the system
+configuration instead, for example:</p><pre><code class="programlisting  nix">{ pkgsUnstable, ... }:
+
+{
+  nixpkgs.overlays = [
+    (_final: _prev: {
+      skim = pkgsUnstable.skim;
+    })
+  ];
+}
+</code></pre><p>In a flake-based NixOS or nix-darwin configuration, pass
+<code class="literal">pkgsUnstable</code> to <code class="literal">nixosSystem</code> or <code class="literal">darwinSystem</code> with
+<code class="literal">specialArgs</code>.</p></li></ol></div>
 </div>
 </div>
  </div>
